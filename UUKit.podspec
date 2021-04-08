@@ -8,14 +8,13 @@
 
 Pod::Spec.new do |s|
   s.name             = 'UUKit'
-  s.version          = '0.0.5'
+  s.version          = '0.0.6'
   s.summary          = 'iOS基础库.'
 
-
-  s.homepage         = 'https://github.com/uukit@uxiu.me/UUKit'
+  s.homepage         = 'https://github.com/UUKit/UUKit'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
   s.author           = { 'uxiu.me' => 'mail@uxiu.me' }
-  s.source           = { :git => 'https://github.com/uukit@uxiu.me/UUKit.git', :tag => s.version.to_s }
+  s.source           = { :git => 'https://github.com/UUKit/UUKit.git', :tag => s.version.to_s }
 
   s.ios.deployment_target = '10.0'
   s.source_files = 'UUKit/Classes/**/*'
