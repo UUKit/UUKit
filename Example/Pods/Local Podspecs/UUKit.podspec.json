@@ -1,0 +1,21 @@
+{
+  "name": "UUKit",
+  "version": "0.0.5",
+  "summary": "iOS基础库.",
+  "homepage": "https://github.com/uukit@uxiu.me/UUKit",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "uxiu.me": "mail@uxiu.me"
+  },
+  "source": {
+    "git": "https://github.com/uukit@uxiu.me/UUKit.git",
+    "tag": "0.0.5"
+  },
+  "platforms": {
+    "ios": "10.0"
+  },
+  "source_files": "UUKit/Classes/**/*"
+}
