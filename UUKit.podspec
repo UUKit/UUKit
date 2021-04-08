@@ -10,7 +10,10 @@ Pod::Spec.new do |s|
   s.name             = 'UUKit'
   s.version          = '0.0.6'
   s.summary          = 'iOS基础库.'
-
+  s.swift_version    = '5.0'
+  s.platforms        = {
+    "ios": "10.0"
+  }
   s.homepage         = 'https://github.com/UUKit/UUKit'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
   s.author           = { 'uxiu.me' => 'mail@uxiu.me' }
@@ -18,6 +21,7 @@ Pod::Spec.new do |s|
 
   s.ios.deployment_target = '10.0'
   s.source_files = 'UUKit/Classes/**/*'
+  
   
   # s.resource_bundles = {
   #   'UUKit' => ['UUKit/Assets/*.png']
