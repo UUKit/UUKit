@@ -10,40 +10,42 @@ import UIKit
 
 extension UILabel {
     
-    public convenience init( frame: CGRect = CGRect.zero, text: String = "", textColor: UIColor = .black, font: UIFont = .systemFont(ofSize: 16), aligement: NSTextAlignment = .left, numOfLines: Int = 1) {
+    public convenience init(text: String? = nil, textColor: UIColor = .black, font: UIFont = .systemFont(ofSize: 14), backgroundColor: UIColor = .clear, aligement: NSTextAlignment = .left, numOfLines: Int = 1) {
         self.init()
+        self.set(text: text, textColor: textColor, font: font, backgroundColor: backgroundColor, aligement: aligement, numOfLines: numOfLines)
+    }
+    
+    public func set(text: String? = nil, textColor: UIColor = .black, font: UIFont = .systemFont(ofSize: 14), backgroundColor: UIColor = .clear, aligement: NSTextAlignment = .left, numOfLines: Int = 1) {
         self.font = font
         self.text = text
         self.frame = frame
         self.textColor = textColor
         self.textAlignment = aligement
         self.numberOfLines = numOfLines
-    }
-    
-    public static func initForTitle() -> UILabel {
-        let label = UILabel()
-        label.numberOfLines = 1
-        label.textColor = .darkGray
-        label.minimumScaleFactor = 0.75
-        label.adjustsFontSizeToFitWidth = true
-        label.font = .boldSystemFont(ofSize: 18)
-        return label
-    }
-    
-    public static func initForDescription() -> UILabel {
-        let label = UILabel()
-        label.numberOfLines = 0
-        label.textColor = .black
-        label.font = .systemFont(ofSize: 14)
-        return label
+        self.backgroundColor = backgroundColor
     }
     
 }
 
 
-public extension UILabel {
+extension UILabel {
     
-    func setLinespace(_ linespace: CGFloat) {
+    @discardableResult
+    public func set(text: String, withAttributes attributes: [NSAttributedString.Key: Any]) -> UILabel {
+        var attributedText: NSMutableAttributedString!
+        if let _attributedText = self.attributedText {
+            attributedText = NSMutableAttributedString(attributedString: _attributedText)
+        } else {
+            guard let labelText = self.text else { return self }
+            attributedText = NSMutableAttributedString(string: labelText)
+        }
+        let range = (attributedText.string as NSString).range(of: text)
+        attributedText.addAttributes(attributes, range: range)
+        self.attributedText = attributedText
+        return self
+    }
+    
+    public func setLinespace(_ linespace: CGFloat) {
         let _text = text ?? ""
         let attributedString = NSMutableAttributedString(string: _text)
         let paragraphStyle = NSMutableParagraphStyle()

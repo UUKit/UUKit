@@ -9,6 +9,9 @@
 import UIKit
 
 
+// 0xB2B2B2 // 警告框按钮分割线颜色值
+// 0xDCDCDD // 警告框按钮高亮时颜色值
+
 public extension UIColor {
     
     /// UIColor(r: 95, g: 199, b: 220)，透明度（0 ~ 1）
@@ -236,3 +239,19 @@ extension UIColor {
 //        return Float(hexComponent) / 255.0
 //    }
 //}
+
+extension UIColor {
+    
+    /// 颜色生成图片
+    public func image(_ size: CGSize = .init(width: 1, height: 1)) -> UIImage? {
+        let rect = CGRect(x: 0, y: 0, width: size.width, height: size.height)
+        UIGraphicsBeginImageContext(rect.size)
+        let context = UIGraphicsGetCurrentContext()
+        context?.setFillColor(cgColor)
+        context?.fill(rect)
+        let image = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        return image
+    }
+    
+}

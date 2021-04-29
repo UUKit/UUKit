@@ -86,11 +86,15 @@ extension TimeInterval {
         return before(Date())
     }
     
-    public func after(_ date: Date) -> Date {
+    public func later() -> Date {
+        return after(Date())
+    }
+    
+    public func after(_ date: Date = Date()) -> Date {
         return Date(timeInterval: self, since: date)
     }
     
-    public func before(_ date: Date) -> Date {
+    public func before(_ date: Date = Date()) -> Date {
         return Date(timeInterval: -self, since: date)
     }
     

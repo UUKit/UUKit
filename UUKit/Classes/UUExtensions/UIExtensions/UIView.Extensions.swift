@@ -11,7 +11,7 @@ import CoreGraphics
 
 extension UIView {
     
-    public convenience init(frame: CGRect = CGRect.zero, backgroundColor: UIColor = .clear) {
+    public convenience init(backgroundColor: UIColor = .clear, frame: CGRect = CGRect.zero) {
         self.init(frame: frame)
         self.backgroundColor = backgroundColor
     }
