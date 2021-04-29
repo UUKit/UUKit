@@ -1,5 +1,5 @@
 PODS:
-  - UUKit (0.0.6)
+  - UUKit (0.0.7)
 
 DEPENDENCIES:
   - UUKit (from `../`)
@@ -9,7 +9,7 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  UUKit: 61e6a3245b81bceb2e8376acf9d3fd20444f73bb
+  UUKit: 0470c7235c40783b4643b790ae735a4062ae4f5d
 
 PODFILE CHECKSUM: cc158c2114253bfe26140d99f0ce8e3861abcdcc
 

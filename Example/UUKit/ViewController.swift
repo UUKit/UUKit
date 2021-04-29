@@ -17,7 +17,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         title = "UUKit"
         
-        let btn = UIButton(frame: CGRect(x: 100, y: 200, width: 200, height: 200), backgroundColor: .green)
+        let btn = UIButton(backgroundColor: .green, frame: CGRect(x: 100, y: 200, width: 200, height: 200))
         btn.addTarget(self, action: #selector(clicked), for: .touchUpInside)
         view.addSubviews(btn)
         print(Date().weekday)
@@ -25,7 +25,7 @@ class ViewController: UIViewController {
         
         btn.setBorder(30, UIColor(hexInt: 0xff0ff0)).setRoundCorner(direction: .topLeft)
         
-        let btn1 = UIButton(frame: CGRect(x: 100, y: 410, width: 200, height: 200), backgroundColor: .green)
+        let btn1 = UIButton(backgroundColor: .green, frame: CGRect(x: 100, y: 410, width: 200, height: 200))
         btn1.addTarget(self, action: #selector(clicked), for: .touchUpInside)
         view.addSubviews(btn1)
         

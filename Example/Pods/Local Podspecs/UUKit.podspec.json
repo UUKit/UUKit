@@ -1,8 +1,7 @@
 {
   "name": "UUKit",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "summary": "iOS基础库.",
-  "swift_versions": "5.0",
   "platforms": {
     "ios": "10.0"
   },
@@ -16,8 +15,7 @@
   },
   "source": {
     "git": "https://github.com/UUKit/UUKit.git",
-    "tag": "0.0.6"
+    "tag": "0.0.7"
   },
-  "source_files": "UUKit/Classes/**/*",
-  "swift_version": "5.0"
+  "source_files": "UUKit/Classes/**/*"
 }
