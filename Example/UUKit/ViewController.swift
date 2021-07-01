@@ -29,6 +29,11 @@ class ViewController: UIViewController {
         btn1.addTarget(self, action: #selector(clicked), for: .touchUpInside)
         view.addSubviews(btn1)
         
+        
+        let arr = ["123","456",nil]
+        print(arr.toJSON() ?? "")
+        
+        
     }
     
     @objc func clicked() {
