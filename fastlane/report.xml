@@ -5,59 +5,59 @@
     
     
       
-      <testcase classname="fastlane.lanes" name="00: import_from_git" time="1.901955">
+      <testcase classname="fastlane.lanes" name="00: import_from_git" time="4.521389">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="01: git_pull" time="2.576117">
+      <testcase classname="fastlane.lanes" name="01: git_pull" time="3.184743">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="02: ensure_git_branch" time="0.018335">
+      <testcase classname="fastlane.lanes" name="02: ensure_git_branch" time="0.017386">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="03: version_bump_podspec" time="0.002993">
+      <testcase classname="fastlane.lanes" name="03: version_bump_podspec" time="0.00191">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="04: git_add" time="0.035091">
+      <testcase classname="fastlane.lanes" name="04: git_add" time="0.023078">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="05: git_commit" time="0.070251">
+      <testcase classname="fastlane.lanes" name="05: git_commit" time="0.038744">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="06: push_to_git_remote" time="3.742641">
+      <testcase classname="fastlane.lanes" name="06: push_to_git_remote" time="3.547392">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="07: git_tag_exists" time="0.022535">
+      <testcase classname="fastlane.lanes" name="07: git_tag_exists" time="0.025116">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="08: remove_git_tag" time="3.861137">
+      <testcase classname="fastlane.lanes" name="08: remove_git_tag" time="3.544348">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="09: add_git_tag" time="0.030869">
+      <testcase classname="fastlane.lanes" name="09: add_git_tag" time="0.031954">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="10: push_git_tags" time="75.77674">
+      <testcase classname="fastlane.lanes" name="10: push_git_tags" time="120.541992">
         
-          <failure message="/Users/uxiu/.rvm/gems/ruby-3.0.0/gems/fastlane-2.187.0/fastlane/lib/fastlane/actions/actions_helper.rb:67:in `execute_action&apos;&#10;/Users/uxiu/.rvm/gems/ruby-3.0.0/gems/fastlane-2.187.0/fastlane/lib/fastlane/runner.rb:255:in `block in execute_action&apos;&#10;/Users/uxiu/.rvm/gems/ruby-3.0.0/gems/fastlane-2.187.0/fastlane/lib/fastlane/runner.rb:229:in `chdir&apos;&#10;/Users/uxiu/.rvm/gems/ruby-3.0.0/gems/fastlane-2.187.0/fastlane/lib/fastlane/runner.rb:229:in `execute_action&apos;&#10;/Users/uxiu/.rvm/gems/ruby-3.0.0/gems/fastlane-2.187.0/fastlane/lib/fastlane/runner.rb:157:in `trigger_action_by_name&apos;&#10;/Users/uxiu/.rvm/gems/ruby-3.0.0/gems/fastlane-2.187.0/fastlane/lib/fastlane/fast_file.rb:159:in `method_missing&apos;&#10;../../../../../../var/folders/9w/2mc3w3y57m50r0w86nkqcqw80000gn/T/fl_clone20210705-65893-i0aol6/fastlane-files/fastlane/Fastfile:40:in `block in parsing_binding&apos;&#10;/Users/uxiu/.rvm/gems/ruby-3.0.0/gems/fastlane-2.187.0/fastlane/lib/fastlane/lane.rb:33:in `call&apos;&#10;/Users/uxiu/.rvm/gems/ruby-3.0.0/gems/fastlane-2.187.0/fastlane/lib/fastlane/runner.rb:49:in `block in execute&apos;&#10;/Users/uxiu/.rvm/gems/ruby-3.0.0/gems/fastlane-2.187.0/fastlane/lib/fastlane/runner.rb:45:in `chdir&apos;&#10;/Users/uxiu/.rvm/gems/ruby-3.0.0/gems/fastlane-2.187.0/fastlane/lib/fastlane/runner.rb:45:in `execute&apos;&#10;/Users/uxiu/.rvm/gems/ruby-3.0.0/gems/fastlane-2.187.0/fastlane/lib/fastlane/lane_manager.rb:47:in `cruise_lane&apos;&#10;/Users/uxiu/.rvm/gems/ruby-3.0.0/gems/fastlane-2.187.0/fastlane/lib/fastlane/command_line_handler.rb:36:in `handle&apos;&#10;/Users/uxiu/.rvm/gems/ruby-3.0.0/gems/fastlane-2.187.0/fastlane/lib/fastlane/commands_generator.rb:109:in `block (2 levels) in run&apos;&#10;/Users/uxiu/.rvm/rubies/ruby-3.0.0/lib/ruby/gems/3.0.0/gems/commander-4.6.0/lib/commander/command.rb:187:in `call&apos;&#10;/Users/uxiu/.rvm/rubies/ruby-3.0.0/lib/ruby/gems/3.0.0/gems/commander-4.6.0/lib/commander/command.rb:157:in `run&apos;&#10;/Users/uxiu/.rvm/rubies/ruby-3.0.0/lib/ruby/gems/3.0.0/gems/commander-4.6.0/lib/commander/runner.rb:444:in `run_active_command&apos;&#10;/Users/uxiu/.rvm/gems/ruby-3.0.0/gems/fastlane-2.187.0/fastlane_core/lib/fastlane_core/ui/fastlane_runner.rb:76:in `run!&apos;&#10;/Users/uxiu/.rvm/rubies/ruby-3.0.0/lib/ruby/gems/3.0.0/gems/commander-4.6.0/lib/commander/delegates.rb:18:in `run!&apos;&#10;/Users/uxiu/.rvm/gems/ruby-3.0.0/gems/fastlane-2.187.0/fastlane/lib/fastlane/commands_generator.rb:353:in `run&apos;&#10;/Users/uxiu/.rvm/gems/ruby-3.0.0/gems/fastlane-2.187.0/fastlane/lib/fastlane/commands_generator.rb:42:in `start&apos;&#10;/Users/uxiu/.rvm/gems/ruby-3.0.0/gems/fastlane-2.187.0/fastlane/lib/fastlane/cli_tools_distributor.rb:122:in `take_off&apos;&#10;/Users/uxiu/.rvm/gems/ruby-3.0.0/gems/fastlane-2.187.0/bin/fastlane:23:in `&lt;top (required)&gt;&apos;&#10;/Users/uxiu/.rvm/gems/ruby-3.0.0/bin/fastlane:23:in `load&apos;&#10;/Users/uxiu/.rvm/gems/ruby-3.0.0/bin/fastlane:23:in `&lt;main&gt;&apos;&#10;&#10;Exit status of command &apos;git push origin --tags&apos; was 128 instead of 0.&#10;fatal: unable to access &apos;https://github.com/UUKit/UUKit.git/&apos;: Failed to connect to github.com port 443: Operation timed out&#10;" />
+          <failure message="/Users/uxiu/.rvm/gems/ruby-3.0.0/gems/fastlane-2.187.0/fastlane/lib/fastlane/actions/actions_helper.rb:67:in `execute_action&apos;&#10;/Users/uxiu/.rvm/gems/ruby-3.0.0/gems/fastlane-2.187.0/fastlane/lib/fastlane/runner.rb:255:in `block in execute_action&apos;&#10;/Users/uxiu/.rvm/gems/ruby-3.0.0/gems/fastlane-2.187.0/fastlane/lib/fastlane/runner.rb:229:in `chdir&apos;&#10;/Users/uxiu/.rvm/gems/ruby-3.0.0/gems/fastlane-2.187.0/fastlane/lib/fastlane/runner.rb:229:in `execute_action&apos;&#10;/Users/uxiu/.rvm/gems/ruby-3.0.0/gems/fastlane-2.187.0/fastlane/lib/fastlane/runner.rb:157:in `trigger_action_by_name&apos;&#10;/Users/uxiu/.rvm/gems/ruby-3.0.0/gems/fastlane-2.187.0/fastlane/lib/fastlane/fast_file.rb:159:in `method_missing&apos;&#10;../../../../../../var/folders/9w/2mc3w3y57m50r0w86nkqcqw80000gn/T/fl_clone20210705-66482-2tqntk/fastlane-files/fastlane/Fastfile:40:in `block in parsing_binding&apos;&#10;/Users/uxiu/.rvm/gems/ruby-3.0.0/gems/fastlane-2.187.0/fastlane/lib/fastlane/lane.rb:33:in `call&apos;&#10;/Users/uxiu/.rvm/gems/ruby-3.0.0/gems/fastlane-2.187.0/fastlane/lib/fastlane/runner.rb:49:in `block in execute&apos;&#10;/Users/uxiu/.rvm/gems/ruby-3.0.0/gems/fastlane-2.187.0/fastlane/lib/fastlane/runner.rb:45:in `chdir&apos;&#10;/Users/uxiu/.rvm/gems/ruby-3.0.0/gems/fastlane-2.187.0/fastlane/lib/fastlane/runner.rb:45:in `execute&apos;&#10;/Users/uxiu/.rvm/gems/ruby-3.0.0/gems/fastlane-2.187.0/fastlane/lib/fastlane/lane_manager.rb:47:in `cruise_lane&apos;&#10;/Users/uxiu/.rvm/gems/ruby-3.0.0/gems/fastlane-2.187.0/fastlane/lib/fastlane/command_line_handler.rb:36:in `handle&apos;&#10;/Users/uxiu/.rvm/gems/ruby-3.0.0/gems/fastlane-2.187.0/fastlane/lib/fastlane/commands_generator.rb:109:in `block (2 levels) in run&apos;&#10;/Users/uxiu/.rvm/rubies/ruby-3.0.0/lib/ruby/gems/3.0.0/gems/commander-4.6.0/lib/commander/command.rb:187:in `call&apos;&#10;/Users/uxiu/.rvm/rubies/ruby-3.0.0/lib/ruby/gems/3.0.0/gems/commander-4.6.0/lib/commander/command.rb:157:in `run&apos;&#10;/Users/uxiu/.rvm/rubies/ruby-3.0.0/lib/ruby/gems/3.0.0/gems/commander-4.6.0/lib/commander/runner.rb:444:in `run_active_command&apos;&#10;/Users/uxiu/.rvm/gems/ruby-3.0.0/gems/fastlane-2.187.0/fastlane_core/lib/fastlane_core/ui/fastlane_runner.rb:76:in `run!&apos;&#10;/Users/uxiu/.rvm/rubies/ruby-3.0.0/lib/ruby/gems/3.0.0/gems/commander-4.6.0/lib/commander/delegates.rb:18:in `run!&apos;&#10;/Users/uxiu/.rvm/gems/ruby-3.0.0/gems/fastlane-2.187.0/fastlane/lib/fastlane/commands_generator.rb:353:in `run&apos;&#10;/Users/uxiu/.rvm/gems/ruby-3.0.0/gems/fastlane-2.187.0/fastlane/lib/fastlane/commands_generator.rb:42:in `start&apos;&#10;/Users/uxiu/.rvm/gems/ruby-3.0.0/gems/fastlane-2.187.0/fastlane/lib/fastlane/cli_tools_distributor.rb:122:in `take_off&apos;&#10;/Users/uxiu/.rvm/gems/ruby-3.0.0/gems/fastlane-2.187.0/bin/fastlane:23:in `&lt;top (required)&gt;&apos;&#10;/Users/uxiu/.rvm/gems/ruby-3.0.0/bin/fastlane:23:in `load&apos;&#10;/Users/uxiu/.rvm/gems/ruby-3.0.0/bin/fastlane:23:in `&lt;main&gt;&apos;&#10;&#10;Exit status of command &apos;git push origin --tags&apos; was 128 instead of 0.&#10;fatal: unable to access &apos;https://github.com/UUKit/UUKit.git/&apos;: LibreSSL SSL_connect: SSL_ERROR_SYSCALL in connection to github.com:443 &#10;" />
         
       </testcase>
     
