@@ -267,11 +267,14 @@ extension String {
     ///   - endIndex: 结束Index
     /// - Returns: 截取到的字符串
     public func subString(from startIndex: Int, to endIndex: Int) -> String? {
-        assert(endIndex >= startIndex, "endIndex不能小于StartIndex")
-        assert(self.count > endIndex, "endIndex超过了字符串长度")
-        assert(startIndex >= 0, "startIndex不能为负数")
-
-        guard endIndex >= startIndex, self.count > endIndex, startIndex >= 0 else {return nil}
+        //assert(endIndex >= startIndex, "endIndex不能小于StartIndex")
+        //assert(self.count > endIndex, "endIndex超过了字符串长度")
+        //assert(startIndex >= 0, "startIndex不能为负数")
+        
+        guard endIndex >= startIndex else { print("endIndex小于StartIndex，这是错误的"); return nil }
+        guard self.count > endIndex else { print("endIndex超过了字符串长度，这是错误的"); return nil }
+        guard startIndex >= 0 else { print("startIndex为负数，这是错误的"); return nil }
+        
         let startIndex = self.index(self.startIndex, offsetBy: startIndex)
         let endIndex = self.index(self.startIndex, offsetBy: endIndex)
         return String(self[startIndex...endIndex])
@@ -283,10 +286,10 @@ extension String {
     ///   - length: length description
     /// - Returns: 截取到的字符串
     public func subString(location:Int, length: Int) -> String? {
-        assert(location >= 0, "起始位置不能为负数")
-        assert(length > 0, "长度必须大于0")
-
-        guard location >= 0, length > 0 else {return nil}
+        //assert(location >= 0, "起始位置不能为负数")
+        //assert(length > 0, "长度必须大于0")
+        guard location >= 0 else { print("起始位置为负数，这是错误的"); return nil }
+        guard length > 0 else { print("长度等于0，这是错误的"); return nil }
         return subString(from: location, to: location+length-1)
     }
     

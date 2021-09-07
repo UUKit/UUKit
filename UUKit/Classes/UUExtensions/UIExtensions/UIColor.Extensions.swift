@@ -20,27 +20,26 @@ public extension UIColor {
     }
     
     /// UIColor(hex: 0x5fc7dc)，透明度（0 ~ 1）
-    convenience init(hexInt: UInt64, alpha: CGFloat = 1.0) {
-        let r = CGFloat((hexInt & 0xff0000) >> 16)
-        let g = CGFloat((hexInt & 0x00ff00) >> 8)
-        let b = CGFloat( hexInt & 0x0000ff)
+    convenience init(hex: UInt64, alpha: CGFloat = 1.0) {
+        let r = CGFloat((hex & 0xff0000) >> 16)
+        let g = CGFloat((hex & 0x00ff00) >> 8)
+        let b = CGFloat( hex & 0x0000ff)
         self.init(r, g, b, a: alpha)
     }
     
-    convenience init(hexString: String, alpha: CGFloat = 1.0) {
-        let formattedHEX = hexString
+    convenience init(hex: String, alpha: CGFloat = 1.0) {
+        let formattedHEX = hex.lowercased()
             .replacingOccurrences(of: "0x", with: "")
-            .replacingOccurrences(of: "0X", with: "")
             .replacingOccurrences(of: "#" , with: "")
         let scanner = Scanner(string: "0x\(formattedHEX)")
         scanner.scanLocation = 0
         var hexInt: UInt64 = 0
         scanner.scanHexInt64(&hexInt)
-        self.init(hexInt: hexInt, alpha: alpha)
+        self.init(hex: hexInt, alpha: alpha)
     }
     
     /// 获取颜色对应的16进制数值
-    var toHexString: String {
+    var hexStr: String {
         var r: CGFloat = 0, g: CGFloat = 0, b: CGFloat = 0, a: CGFloat = 0
         self.getRed(&r, green: &g, blue: &b, alpha: &a)
         return String(format: "0x%02X%02X%02X", Int(r * 0xff), Int(g * 0xff), Int(b * 0xff))

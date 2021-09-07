@@ -32,7 +32,7 @@ extension UIView {
     ///   - locations: 渐变色分段数组，数值为 0~1 之间的float值
     ///   - startPoint: 渐变色的起始位置
     ///   - endPoint: 渐变色的结束位置
-    public func setGradientLayer(colors: [UIColor] = [UIColor(hexInt: 0xCC0422), UIColor(hexInt: 0x7D0014)], locations: [NSNumber]? = nil, startPoint: CGPoint = CGPoint(x: 0.1, y: 0), endPoint: CGPoint = CGPoint(x: 0.9, y: 0)) {
+    public func setGradientLayer(colors: [UIColor] = [UIColor(hex: 0xCC0422), UIColor(hex: 0x7D0014)], locations: [NSNumber]? = nil, startPoint: CGPoint = CGPoint(x: 0.1, y: 0), endPoint: CGPoint = CGPoint(x: 0.9, y: 0)) {
         var cgColors = [CGColor]()
         for color: UIColor in colors {
             cgColors.append(color.cgColor)
@@ -172,5 +172,12 @@ extension UIView {
         }
         return arrm
     }
+    
+    /// 根据事件响应者链获取最顶部的 View Controller
+    var controller: UIViewController? {
+        let responder: UIResponder? = sequence(first: self, next: { $0.next }).first(where: { $0 is UIViewController })
+        return responder as? UIViewController
+    }
+    
     
 }

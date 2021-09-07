@@ -22,7 +22,7 @@ extension String: UUColorProtocol {
         scanner.scanLocation = 0
         var hexInt: UInt64 = 0
         scanner.scanHexInt64(&hexInt)
-        return UIColor(hexInt: hexInt)
+        return UIColor(hex: hexInt)
     }
     
     

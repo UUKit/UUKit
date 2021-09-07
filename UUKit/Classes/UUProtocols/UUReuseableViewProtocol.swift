@@ -33,7 +33,7 @@ public enum UUCellReuseMode {
 extension UUReuseableViewProtocol {
     
     private static var className: String {
-        return "\(self)"
+        return String(describing: self)
     }
     
     private static var bundle: Bundle {

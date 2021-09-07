@@ -38,12 +38,12 @@ extension UIButton {
     }
     
     
-    public convenience init(title: String, titleColor: UIColor, selectedTitle: String? = nil, selectedTitleColor: UIColor? = nil, font: UIFont? = .systemFont(ofSize: 14), backgroundColor: UIColor? = nil, selectedBackgroundColor: UIColor? = nil, highlightedBackgroundColor: UIColor? = .init(hexInt: 0xDCDCDD), disabledBackgroundColor: UIColor? = nil, isUserInteractionEnabled: Bool = true,  target: Any? = nil, action: Selector? = nil) {
+    public convenience init(title: String, titleColor: UIColor, selectedTitle: String? = nil, selectedTitleColor: UIColor? = nil, font: UIFont? = .systemFont(ofSize: 14), backgroundColor: UIColor? = nil, selectedBackgroundColor: UIColor? = nil, highlightedBackgroundColor: UIColor? = .init(hex: 0xDCDCDD), disabledBackgroundColor: UIColor? = nil, isUserInteractionEnabled: Bool = true,  target: Any? = nil, action: Selector? = nil) {
         self.init()
         set(title: title, titleColor: titleColor, selectedTitle: selectedTitle, selectedTitleColor: selectedTitleColor, font: font, backgroundColor: backgroundColor, selectedBackgroundColor: selectedBackgroundColor, highlightedBackgroundColor: highlightedBackgroundColor, disabledBackgroundColor: disabledBackgroundColor, isUserInteractionEnabled: isUserInteractionEnabled, target: target, action: action)
     }
     
-    public func set(title: String, titleColor: UIColor, selectedTitle: String? = nil, selectedTitleColor: UIColor? = nil, font: UIFont? = .systemFont(ofSize: 14), backgroundColor: UIColor? = nil, selectedBackgroundColor: UIColor? = nil, highlightedBackgroundColor: UIColor? = .init(hexInt: 0xDCDCDD), disabledBackgroundColor: UIColor? = nil, isUserInteractionEnabled: Bool = true,  target: Any? = nil, action: Selector? = nil) {
+    public func set(title: String, titleColor: UIColor, selectedTitle: String? = nil, selectedTitleColor: UIColor? = nil, font: UIFont? = .systemFont(ofSize: 14), backgroundColor: UIColor? = nil, selectedBackgroundColor: UIColor? = nil, highlightedBackgroundColor: UIColor? = .init(hex: 0xDCDCDD), disabledBackgroundColor: UIColor? = nil, isUserInteractionEnabled: Bool = true,  target: Any? = nil, action: Selector? = nil) {
         setTitle(title, for: .normal)
         setTitleColor(titleColor, for: .normal)
         if let selectedTitle = selectedTitle {
