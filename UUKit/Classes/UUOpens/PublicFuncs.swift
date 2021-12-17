@@ -108,3 +108,44 @@ public func subclassesNames<T: AnyObject>(of `class`: T.Type) -> [String] {
 public func subclassesFullNames<T: AnyObject>(of `class`: T.Type) -> [String] {
     return subclasses(of: `class`).compactMap { String(reflecting: $0) }
 }
+
+
+/// 代码延迟运行
+///
+/// - Parameters:
+///   - delayTime: 延时时间。比如：.seconds(5)、.milliseconds(500)
+///   - qosClass: 要使用的全局QOS类（默认为 nil，表示主线程）
+///   - closure: 延迟运行的代码
+///
+/// 延迟5秒执行（在主线程上）
+/// delay(by: 5) {
+///    print("时间1：", Date())
+/// }
+///
+/// 延迟5秒执行（在全局队列上，且优先级高）
+/// delay(by: 5, qosClass: .userInitiated) {
+///    print("时间2：", Date())
+/// }
+public func delay(by delayTime: TimeInterval, qosClass: DispatchQoS.QoSClass? = nil, _ closure: @escaping () -> Void) {
+    let dispatchQueue = qosClass != nil ? DispatchQueue.global(qos: qosClass!) : .main
+    dispatchQueue.asyncAfter(deadline: DispatchTime.now() + delayTime, execute: closure)
+}
+
+
+
+
+//+ (NSString *)generateRandomId {
+//    UInt64 time = [[NSDate date] timeIntervalSince1970] * 1000;
+//    return [NSString stringWithFormat:@"%llu_%@", time, [self generateRandomString]];
+//}
+//
+//+ (NSString *)generateRandomString {
+//    char data[10];
+//    for (int x = 0; x < 10; ++x) {
+//        data[x] = (char)('A' + (arc4random_uniform(26)));
+//    }
+//    return [[NSString alloc] initWithBytes:data length:10 encoding:NSUTF8StringEncoding];
+//}
+
+
+

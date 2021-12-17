@@ -74,12 +74,12 @@ open class UUTextView: UITextView {
     
     /// 最大输入数量
     var _maxInputCount = 0
-    @IBInspectable public var maxInputCount: UInt {
+    @IBInspectable public var maxInputCount: Int {
         get {
-            return UInt(_maxInputCount)
+            return Int(UInt(_maxInputCount))
         }
         set {
-            _maxInputCount = Int(newValue)
+            _maxInputCount = Int(UInt(newValue))
         }
     }
     
@@ -136,8 +136,11 @@ open class UUTextView: UITextView {
     
     @objc func textDidChange(notification: NSNotification) {
         showPlaceholderViewIfNeeded()
+        /*
+         这里用的是通知，如果实际使用的地方又设置了文字改变的代理方法，会先执行代理方法的内容，所以这里容易出 bug ，需要在代理方法内再做一次最大长度判断
+         */
         // 超出最大输入长度
-        if _maxInputCount > 0 , (text?.count ?? 0) > _maxInputCount {
+        if _maxInputCount > 0 , markedTextRange == nil, (text?.count ?? 0) >= _maxInputCount {
             text = text.subString(to: _maxInputCount - 1)
             return
         }
@@ -202,7 +205,7 @@ open class UUTextView: UITextView {
         notificationCenter.addObserver(self, selector: #selector(textDidChange(notification:)), name: UITextView.textDidChangeNotification, object: self)
         notificationCenter.addObserver(self, selector: #selector(textViewDidBeginEditing(notification:)), name: UITextView.textDidBeginEditingNotification, object: self)
         notificationCenter.addObserver(self, selector: #selector(textViewDidEndEditing(notification:)), name: UITextView.textDidEndEditingNotification, object: self)
-        notificationCenter.addObserver(self, selector: #selector(textViewDidEndEditing(notification:)), name: UITextView.textDidEndEditingNotification, object: self)
+        //notificationCenter.addObserver(self, selector: #selector(textViewDidEndEditing(notification:)), name: UITextView.textDidEndEditingNotification, object: self)
     }
     
     private func showPlaceholderViewIfNeeded() {

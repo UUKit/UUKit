@@ -11,39 +11,25 @@ import UIKit
 
 extension UIButton {
     
-    public struct StateBackgroundColor {
-        public var normal: UIColor? = nil
-        public var selected: UIColor? = nil
-        public var highlighted: UIColor? = nil
-        public var disabled: UIColor? = nil
-        public init(normal: UIColor? = nil, selected: UIColor? = nil, highlighted: UIColor? = nil, disabled: UIColor? = nil) {
-            self.normal = normal
-            self.selected = selected
-            self.highlighted = highlighted
-            self.disabled = disabled
-        }
-    }
-    
-    public struct StateFont {
-        public var normal: UIFont? = nil
-        public var selected: UIFont? = nil
-        public var highlighted: UIFont? = nil
-        public var disabled: UIFont? = nil
-    }
-    
-    public convenience init(title: String, titleColor: UIColor, selectedTitle: String? = nil, selectedTitleColor: UIColor? = nil, font: StateFont? = nil, backgroundColor: StateBackgroundColor? = nil, target: Any? = nil, action: Selector? = nil) {
-        self.init()
-        set(title: title, titleColor: titleColor, selectedTitle: selectedTitle, selectedTitleColor: selectedTitleColor, backgroundColor: backgroundColor?.normal, selectedBackgroundColor: backgroundColor?.selected, highlightedBackgroundColor: backgroundColor?.highlighted, disabledBackgroundColor: backgroundColor?.disabled, target: target, action: action)
-        
-    }
-    
-    
     public convenience init(title: String, titleColor: UIColor, selectedTitle: String? = nil, selectedTitleColor: UIColor? = nil, font: UIFont? = .systemFont(ofSize: 14), backgroundColor: UIColor? = nil, selectedBackgroundColor: UIColor? = nil, highlightedBackgroundColor: UIColor? = .init(hex: 0xDCDCDD), disabledBackgroundColor: UIColor? = nil, isUserInteractionEnabled: Bool = true,  target: Any? = nil, action: Selector? = nil) {
         self.init()
         set(title: title, titleColor: titleColor, selectedTitle: selectedTitle, selectedTitleColor: selectedTitleColor, font: font, backgroundColor: backgroundColor, selectedBackgroundColor: selectedBackgroundColor, highlightedBackgroundColor: highlightedBackgroundColor, disabledBackgroundColor: disabledBackgroundColor, isUserInteractionEnabled: isUserInteractionEnabled, target: target, action: action)
     }
     
-    public func set(title: String, titleColor: UIColor, selectedTitle: String? = nil, selectedTitleColor: UIColor? = nil, font: UIFont? = .systemFont(ofSize: 14), backgroundColor: UIColor? = nil, selectedBackgroundColor: UIColor? = nil, highlightedBackgroundColor: UIColor? = .init(hex: 0xDCDCDD), disabledBackgroundColor: UIColor? = nil, isUserInteractionEnabled: Bool = true,  target: Any? = nil, action: Selector? = nil) {
+    public func set(
+        title: String,
+        titleColor: UIColor,
+        selectedTitle: String? = nil,
+        selectedTitleColor: UIColor? = nil,
+        font: UIFont? = .systemFont(ofSize: 14),
+        backgroundColor: UIColor? = nil,
+        selectedBackgroundColor: UIColor? = nil,
+        highlightedBackgroundColor: UIColor? = .init(hex: 0xDCDCDD),
+        disabledBackgroundColor: UIColor? = nil,
+        isUserInteractionEnabled: Bool = true,
+        target: Any? = nil,
+        action: Selector? = nil
+    ) {
         setTitle(title, for: .normal)
         setTitleColor(titleColor, for: .normal)
         if let selectedTitle = selectedTitle {
@@ -55,17 +41,15 @@ extension UIButton {
         self.titleLabel?.font = font
         setBackgroundColor(normal: backgroundColor, highlighted: highlightedBackgroundColor, disabled: disabledBackgroundColor, selected: selectedBackgroundColor)
         self.isUserInteractionEnabled = isUserInteractionEnabled
-        if let action = action {
-            addTarget(target, action: action, for: .primaryActionTriggered)
-        }
+        if let action = action { addTarget(target, action: action, for: .touchUpInside) }
     }
     
-    public convenience init(image: UIImage, tintColor: UIColor? = nil, target: Any? = nil, action: Selector? = nil) {
+    public convenience init(image: UIImage?, tintColor: UIColor? = nil, target: Any? = nil, action: Selector? = nil) {
         self.init()
         if tintColor == nil {
             setImage(image, for: .normal)
         } else {
-            setImage(image.withRenderingMode(.alwaysTemplate), for: .normal)
+            setImage(image?.withRenderingMode(.alwaysTemplate), for: .normal)
             self.tintColor = tintColor
         }
         if let action = action {
@@ -73,7 +57,7 @@ extension UIButton {
         }
     }
     
-    public convenience init(image: UIImage, selectedImage: UIImage? = nil, target: Any? = nil, action: Selector? = nil) {
+    public convenience init(image: UIImage?, selectedImage: UIImage? = nil, target: Any? = nil, action: Selector? = nil) {
         self.init()
         setImage(image, for: .normal)
         setImage(selectedImage, for: .selected)
@@ -126,4 +110,51 @@ extension UIButton {
     
 }
 
+extension UIButton {
+    
+    @objc func set(image anImage: UIImage?, title: String,
+                   titlePosition: UIView.ContentMode, additionalSpacing: CGFloat, state: UIControl.State){
+        self.imageView?.contentMode = .center
+        self.setImage(anImage, for: state)
+        
+        positionLabelRespectToImage(title: title, position: titlePosition, spacing: additionalSpacing)
+        
+        self.titleLabel?.contentMode = .center
+        self.setTitle(title, for: state)
+    }
+    
+    private func positionLabelRespectToImage(title: String, position: UIView.ContentMode,
+                                             spacing: CGFloat) {
+        let imageSize = self.imageRect(forContentRect: self.frame)
+        let titleFont = self.titleLabel?.font!
+        let titleSize = title.size(withAttributes: [NSAttributedString.Key.font: titleFont!])
+        
+        var titleInsets: UIEdgeInsets
+        var imageInsets: UIEdgeInsets
+        
+        switch (position){
+            case .top:
+                titleInsets = UIEdgeInsets(top: -(imageSize.height + titleSize.height + spacing),
+                                           left: -(imageSize.width), bottom: 0, right: 0)
+                imageInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: -titleSize.width)
+            case .bottom:
+                titleInsets = UIEdgeInsets(top: (imageSize.height + titleSize.height + spacing),
+                                           left: -(imageSize.width), bottom: 0, right: 0)
+                imageInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: -titleSize.width)
+            case .left:
+                titleInsets = UIEdgeInsets(top: 0, left: -(imageSize.width * 2), bottom: 0, right: 0)
+                imageInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0,
+                                           right: -(titleSize.width * 2 + spacing))
+            case .right:
+                titleInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: -spacing)
+                imageInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+            default:
+                titleInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+                imageInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+        }
+        
+        self.titleEdgeInsets = titleInsets
+        self.imageEdgeInsets = imageInsets
+    }
+}
 

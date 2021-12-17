@@ -7,6 +7,14 @@
 
 import UIKit
 
+public extension UUSearchBar {
+    
+    enum PlaceholderAlignment {
+        case left,center,right
+    }
+    
+}
+
 open class UUSearchBar: UISearchBar {
     
     var preferredFont: UIFont?
@@ -18,7 +26,7 @@ open class UUSearchBar: UISearchBar {
         preferredFont = font
         preferredTextColor = textColor
         searchBarStyle = UISearchBar.Style.prominent
-        isTranslucent = false
+        //isTranslucent = false
         
     }
     

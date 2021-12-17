@@ -159,3 +159,89 @@ public extension UIImage {
     
     
 }
+
+extension UIImage {
+    
+    /// 将图片缩放成指定尺寸（多余部分自动删除）
+    ///
+    /// 将图片转成 400 * 300 尺寸
+    /// let image2 = image.scaled(to: CGSize(width: 400, height: 300))
+    public func scaled(to newSize: CGSize) -> UIImage {
+        //计算比例
+        let aspectWidth  = newSize.width/size.width
+        let aspectHeight = newSize.height/size.height
+        let aspectRatio = max(aspectWidth, aspectHeight)
+        
+        //图片绘制区域
+        var scaledImageRect = CGRect.zero
+        scaledImageRect.size.width  = size.width * aspectRatio
+        scaledImageRect.size.height = size.height * aspectRatio
+        scaledImageRect.origin.x    = (newSize.width - size.width * aspectRatio) / 2.0
+        scaledImageRect.origin.y    = (newSize.height - size.height * aspectRatio) / 2.0
+        
+        //绘制并获取最终图片
+        UIGraphicsBeginImageContext(newSize)
+        draw(in: scaledImageRect)
+        let scaledImage = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        
+        return scaledImage!
+    }
+    
+    /// 将图片裁剪成指定比例（多余部分自动删除）
+    ///
+    /// 原始图片
+    /// let image = UIImage(named: "image.jpg")!
+    ///
+    /// 将图片转成 4:3 比例
+    /// let image2 = image.crop(ratio: 4/3)
+    ///
+    /// 将图片转成 1:1 比例（正方形）
+    /// let image3 = image.crop(ratio: 1)
+    func crop(ratio: CGFloat) -> UIImage {
+        //计算最终尺寸
+        var newSize:CGSize!
+        if size.width/size.height > ratio {
+            newSize = CGSize(width: size.height * ratio, height: size.height)
+        }else{
+            newSize = CGSize(width: size.width, height: size.width / ratio)
+        }
+        
+        ////图片绘制区域
+        var rect = CGRect.zero
+        rect.size.width  = size.width
+        rect.size.height = size.height
+        rect.origin.x    = (newSize.width - size.width ) / 2.0
+        rect.origin.y    = (newSize.height - size.height ) / 2.0
+        
+        //绘制并获取最终图片
+        UIGraphicsBeginImageContext(newSize)
+        draw(in: rect)
+        let scaledImage = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        
+        return scaledImage!
+    }
+    
+    /**
+     *  重设图片大小
+     */
+    func reSizeImage(_ reSize: CGSize) -> UIImage {
+        //UIGraphicsBeginImageContext(reSize);
+        UIGraphicsBeginImageContextWithOptions(reSize,false,UIScreen.main.scale);
+        self.draw(in: CGRectMake(0, 0, reSize.width, reSize.height));
+        let reSizeImage: UIImage = UIGraphicsGetImageFromCurrentImageContext()!;
+        UIGraphicsEndImageContext();
+        return reSizeImage;
+    }
+    
+    /**
+     *  等比率缩放
+     */
+    func scaleImage(scaleSize: CGFloat) -> UIImage {
+        let size = CGSize(width: size.width * scaleSize, height: size.height * scaleSize)
+        return reSizeImage(size)
+    }
+    
+    
+}

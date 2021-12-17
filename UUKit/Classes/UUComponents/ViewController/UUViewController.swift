@@ -50,14 +50,14 @@ extension UIViewController {
 //    }
 }
 
-class UUViewController<Container: UIView>: UIViewController {
+class UUViewController<UUContainer: UIView>: UIViewController {
     
-    var container: Container { view as! Container }
+    var container: UUContainer { view as! UUContainer }
     
     override func loadView() {
         super.loadView()
-        if view is Container { return }
-        view = Container()
+        if view is UUContainer { return }
+        view = UUContainer()
     }
     
     override func viewDidLoad() {

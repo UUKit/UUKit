@@ -23,7 +23,7 @@ class ViewController: UIViewController {
         print(Date().weekday)
         print(str.isSome)
         
-        btn.setBorder(30, UIColor(hexInt: 0xff0ff0)).setRoundCorner(direction: .topLeft)
+        btn.setBorder(30, UIColor(hex: 0xff0ff0)).setRoundCorner(direction: .topLeft)
         
         let btn1 = UIButton(backgroundColor: .green, frame: CGRect(x: 100, y: 410, width: 200, height: 200))
         btn1.addTarget(self, action: #selector(clicked), for: .touchUpInside)

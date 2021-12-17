@@ -300,3 +300,105 @@ extension String {
         return subString(location: range.location, length: range.length)
     }
 }
+
+
+
+extension String {
+    
+    public func generateQRCode(size: CGFloat = 100) -> UIImage? {
+        guard let codeData = data(using: .utf8) else { return nil }
+        // CIFilter
+        guard let filter = CIFilter(name: "CIQRCodeGenerator", parameters: ["inputMessage": codeData, "inputCorrectionLevel": "H"]) else { return nil }
+        // Out Put
+        guard let outputImage = filter.outputImage else { return nil }
+        let extent = outputImage.extent.integral
+        let scale = min(size / extent.width, size / extent.height)
+        /// Create bitmap
+        let width: size_t = size_t(extent.width * scale)
+        let height: size_t = size_t(extent.height * scale)
+        let cs: CGColorSpace = CGColorSpaceCreateDeviceGray()
+        guard let bitmap: CGContext = CGContext(data: nil, width: width, height: height, bitsPerComponent: 8, bytesPerRow: 0, space: cs, bitmapInfo: 1) else { return nil }
+        //
+        let context = CIContext()
+        guard let bitmapImage = context.createCGImage(outputImage, from: extent) else { return nil }
+        bitmap.interpolationQuality = .none
+        bitmap.scaleBy(x: scale, y: scale)
+        bitmap.draw(bitmapImage, in: extent)
+        guard let scaledImage = bitmap.makeImage() else { return nil }
+        return UIImage.init(cgImage: scaledImage)
+    }
+    
+}
+
+extension String {
+    
+    //To Decimal
+    //2 -> 10
+    func binToDec() -> Int {
+        return createInt(radix: 2)
+    }
+    
+    //8 -> 10
+    func octToDec() -> Int {
+        return createInt(radix: 8)
+    }
+    
+    //16 -> 10
+    func hexToDec() -> Int {
+        return createInt(radix: 16)
+    }
+    
+    //Others
+    //2 -> 8
+    func binToOct() -> String {
+        return self.binToDec().decToOctString()
+    }
+    
+    //2 -> 16
+    func binToHex() -> String {
+        return self.binToDec().decToHexString()
+    }
+    
+    //8 -> 16
+    func octToHex() -> String {
+        return self.octToDec().decToHexString()
+    }
+    
+    //16 -> 8
+    func hexToOct() -> String {
+        return self.hexToDec().decToOctString()
+    }
+    
+    //16 -> 2
+    func hexToBin() -> String {
+        return self.hexToDec().decToBinString()
+    }
+    
+    //8 -> 2
+    func octToBin() -> String {
+        return self.octToDec().decToBinString()
+    }
+    
+    //Additional
+    //16 -> 2
+    func hexToBinStringFormat(minLength: Int = 0) -> String {
+        
+        return hexToBin().pad(minLength: minLength)
+    }
+    
+    fileprivate func pad(minLength: Int) -> String {
+        let padCount = minLength - self.count
+        
+        guard padCount > 0 else {
+            return self
+        }
+        
+        return String(repeating: "0", count: padCount) + self
+    }
+    
+    fileprivate func createInt(radix: Int) -> Int {
+        return Int(self, radix: radix)!
+    }
+    
+}
+

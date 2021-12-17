@@ -212,10 +212,12 @@
 				TargetAttributes = {
 					607FACCF1AFB9204008FA782 = {
 						CreatedOnToolsVersion = 6.3.1;
+						DevelopmentTeam = G7SWAQRHA5;
 						LastSwiftMigration = 1240;
 					};
 					607FACE41AFB9204008FA782 = {
 						CreatedOnToolsVersion = 6.3.1;
+						DevelopmentTeam = G7SWAQRHA5;
 						LastSwiftMigration = 1240;
 						TestTargetID = 607FACCF1AFB9204008FA782;
 					};
@@ -488,6 +490,7 @@
 			baseConfigurationReference = 7757990D33DCC6027EF372D3 /* Pods-UUKit_Example.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = G7SWAQRHA5;
 				INFOPLIST_FILE = UUKit/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -504,6 +507,7 @@
 			baseConfigurationReference = 30E41D780A3668EA967EA775 /* Pods-UUKit_Example.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = G7SWAQRHA5;
 				INFOPLIST_FILE = UUKit/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -519,6 +523,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = C981B87C05CFC7ECC90DAD8F /* Pods-UUKit_Tests.debug.xcconfig */;
 			buildSettings = {
+				DEVELOPMENT_TEAM = G7SWAQRHA5;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -542,6 +547,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 86119ECE1D9734FA138AD8D0 /* Pods-UUKit_Tests.release.xcconfig */;
 			buildSettings = {
+				DEVELOPMENT_TEAM = G7SWAQRHA5;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
 					"$(inherited)",
