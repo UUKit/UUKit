@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name                  = 'UUKit'
-  s.version               = '0.0.10'
+  s.version               = '0.0.11'
   s.summary               = 'iOS基础库.'
   s.homepage              = 'https://github.com/UUKit/UUKit'
   s.license               = { :type => 'MIT', :file => 'LICENSE' }
