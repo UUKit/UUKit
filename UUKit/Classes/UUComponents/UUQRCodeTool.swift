@@ -11,6 +11,7 @@ import UIKit
 
 public typealias UUQRCodeScanResult = ([String]) -> ()
 
+@available(iOS 10.2, *)
 public class UUQRCodeTool: NSObject {
     static let shared = UUQRCodeTool()
     
@@ -48,6 +49,7 @@ public class UUQRCodeTool: NSObject {
 }
 
 // MARK: - 开启摄像头扫描二维码
+@available(iOS 10.2, *)
 extension UUQRCodeTool {
     /// 扫描二维码
     ///
@@ -85,6 +87,7 @@ extension UUQRCodeTool {
 }
 
 // MARK: - 设置扫描区域
+@available(iOS 10.2, *)
 extension UUQRCodeTool {
     /// 设置扫描区域
     ///
@@ -100,6 +103,7 @@ extension UUQRCodeTool {
 }
 
 // MARK: - 闪光灯开关
+@available(iOS 10.2, *)
 extension UUQRCodeTool {
     /// 闪光灯开关
     ///
@@ -117,6 +121,7 @@ extension UUQRCodeTool {
     }
 }
 
+@available(iOS 10.2, *)
 extension UUQRCodeTool {
     /// 根据字符串和图片比例生成一张二维码图片，可以添加自定义中间图片
     ///
@@ -179,6 +184,7 @@ extension UUQRCodeTool {
 }
 
 // MARK: - AVCaptureMetadataOutputObjectsDelegate
+@available(iOS 10.2, *)
 extension UUQRCodeTool: AVCaptureMetadataOutputObjectsDelegate {
     public func metadataOutput(_ output: AVCaptureMetadataOutput, didOutput metadataObjects: [AVMetadataObject], from connection: AVCaptureConnection) {
         if isDrawFrame {
@@ -198,6 +204,7 @@ extension UUQRCodeTool: AVCaptureMetadataOutputObjectsDelegate {
     }
 }
 
+@available(iOS 10.2, *)
 private extension UUQRCodeTool {
     func addMiddleImage(image: UIImage, toBackImage: UIImage) -> UIImage {
         // 开启图形上下文

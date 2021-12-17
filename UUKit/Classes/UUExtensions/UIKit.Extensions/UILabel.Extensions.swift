@@ -114,7 +114,7 @@ extension UILabel {
         let rect = CGSize(width: self.bounds.width, height: CGFloat.greatestFiniteMagnitude)
         let labelTextSize = (labelText as NSString)
             .boundingRect(with: rect, options: .usesLineFragmentOrigin,
-                          attributes: [NSAttributedString.Key.font: self.font], context: nil)
+                          attributes: [NSAttributedString.Key.font: self.font ?? UIFont.systemFont(ofSize: UIFont.systemFontSize)], context: nil)
         
         //计算理论上需要的行数
         let labelTextLines = Int(ceil(CGFloat(labelTextSize.height) / self.font.lineHeight))

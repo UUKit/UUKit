@@ -1,6 +1,6 @@
 {
   "name": "UUKit",
-  "version": "0.0.10",
+  "version": "0.0.11",
   "summary": "iOS基础库.",
   "homepage": "https://github.com/UUKit/UUKit",
   "license": {
@@ -22,7 +22,7 @@
   ],
   "source": {
     "git": "https://github.com/UUKit/UUKit.git",
-    "tag": "0.0.10"
+    "tag": "0.0.11"
   },
   "source_files": "UUKit/Classes/**/*",
   "swift_version": "5.4"
